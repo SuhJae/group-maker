@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Groups</title>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+        }
+        div[class="group"] {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F4F4F4;
+            color: #3D3D3D;
+        }
+        button[class="back"] {
+            width: 100%;
+            background-color: #0062FF;
+            color: #F5F5F5;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700
+        }
+        button[class="back"]:hover {
+            background-color: #0454E9;
+        }
+    </style>
+</head>
+<body>
+    <div class="group">
+        <h1>Results</h1>
+        {% for i in range(groups|length) %}
+            <h3>Group #{{ i + 1 }}</h3>
+            <ul>
+                {% for student in groups[i] %}
+                <li>{{ student }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+        <button onclick="window.location.href='/'" class="back">Go Back</button>
+    </div>
+</body>
+</html>
